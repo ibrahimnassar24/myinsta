@@ -6,11 +6,13 @@ import {
     Img,
     VStack,
     Text,
-    Link
+    Link,
+    Divider
 } from "@chakra-ui/react";
 import { useState } from "react";
-import LogIn from "../components/LogIn";
-import SignUp from "../components/SignUp";
+import LogIn from "../components/RegisterForms/LogIn";
+import SignUp from "../components/RegisterForms/SignUp";
+import { color } from "framer-motion";
 
 export default function RegisterPage() {
 
@@ -22,10 +24,9 @@ export default function RegisterPage() {
     return (
         <>
             <Flex
-                w={{ base: "full", md: "3xl" }}
+                w={{ base: "full", md: "4xl" }}
                 h="90vh"
                 m="auto"
-                gap={100}
             >
                 <Box
                     display={{ base: "none", md: "block" }}
@@ -37,24 +38,50 @@ export default function RegisterPage() {
                 <Flex
                     h="100%"
                     direction="column"
+                    p={5}
                     justifyContent="space-between"
                     alignItems="center"
                     flex={1}
+                    borderWidth="1px"
+                    borderStyle="solid"
+                    borderColor="gray.300"
                 >
 
                     <Box
-                        pt={10}
+                        w="full"
+                        p={10}
+                        textAlign="center"
+                        fontFamily="Pacifico"
+                        fontSize="6xl"
                     >
-                        <Heading fontFamily="Pacifico">My insta</Heading>
+                        My Insta
                     </Box>
 
-                    <Box>
+                    <Box w="full">
                         {
                             isRegistered
                                 ? <LogIn />
                                 : <SignUp />
                         }
                     </Box>
+
+                    <Flex
+                        w="full"
+                        direction="column"
+                        justify="center"
+                        align="center"
+                        gap={5}
+                    >
+
+                        <Flex wrap="nowrap" justify="center" align="center">
+                            <Divider w="50%"/>
+                            <Box p={2}>OR</Box>
+                            
+                        </Flex>
+                        <Link>log in with facebook</Link>
+                        <Link>forget password?</Link>
+                    </Flex>
+
 
                     <Box>
                         {
